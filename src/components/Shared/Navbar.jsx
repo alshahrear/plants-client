@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import plantLogo from "../../assets/plantLogo.png";
 
 const Navbar = () => {
@@ -16,13 +16,17 @@ const Navbar = () => {
                     <NavLink>Wishlist</NavLink>
                 </div>
                 <div className="flex item-center py-4  space-x-8">
-                    
-                    <button className="btn font-medium text-white bg-gradient-to-r from-green-700 via-green-600 to-lime-500 hover:from-green-800 hover:via-green-700 hover:to-lime-600 transition-all duration-300 px-7 py-3 rounded-lg">
-                        Login
-                    </button>
-                    <button className="btn font-medium text-white bg-gradient-to-r from-green-700 via-green-600 to-lime-500 hover:from-green-800 hover:via-green-700 hover:to-lime-600 transition-all duration-300 px-5 py-3 rounded-lg">
-                        Register
-                    </button>
+
+                    <Link to="/login">
+                        <button className="btn font-medium text-white bg-gradient-to-r from-green-700 via-green-600 to-lime-500 hover:from-green-800 hover:via-green-700 hover:to-lime-600 transition-all duration-300 px-7 py-3 rounded-lg">
+                            Login
+                        </button>
+                    </Link>
+                    <Link to="/register">
+                        <button className="btn font-medium text-white bg-gradient-to-r from-green-700 via-green-600 to-lime-500 hover:from-green-800 hover:via-green-700 hover:to-lime-600 transition-all duration-300 px-5 py-3 rounded-lg">
+                            Register
+                        </button>
+                    </Link>
                 </div>
             </div>
         </div>
