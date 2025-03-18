@@ -2,7 +2,7 @@ import { Link, NavLink } from "react-router-dom";
 import plantLogo from "../../assets/plantLogo.png";
 import { useContext } from "react";
 import { AuthContext } from "../Provider/AuthProvider";
-import { Tooltip } from "react-tooltip";
+
 
 const Navbar = () => {
     const { user, logOut } = useContext(AuthContext);
@@ -67,6 +67,7 @@ const Navbar = () => {
                             </>
                     }
                 </div>
+                
             </div>
         </div>
     );
