@@ -6,6 +6,7 @@ import Login from "../Pages/Login";
 import Register from "../Pages/Register";
 import AddBlog from "../Pages/AddBlog";
 import Contact from "../Pages/Home/Contact";
+import AllBlogs from "../Pages/AllBlogs";
 
 const router = createBrowserRouter([
     {
@@ -32,6 +33,10 @@ const router = createBrowserRouter([
         {
           path: "/contact",
           element: <Contact></Contact>
+        },
+        {
+          path: "/allBlogs",
+          element: <AllBlogs></AllBlogs>
         }
       ]
     },

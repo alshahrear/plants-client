@@ -3,6 +3,7 @@ import { LuPhoneCall } from "react-icons/lu";
 import { AiTwotoneMail } from "react-icons/ai";
 import { SlLocationPin } from "react-icons/sl";
 import { TbClockHour2 } from "react-icons/tb";
+import { toast, Toaster } from "react-hot-toast";
 import "animate.css";
 
 const Contact = () => {
@@ -23,6 +24,25 @@ const Contact = () => {
             if (sectionRef.current) observer.unobserve(sectionRef.current);
         };
     }, []);
+
+    const handleFormSubmit = (e) => {
+        e.preventDefault();
+        const form = e.target;
+        const name = form.name.value;
+        const email = form.email.value;
+        const phone = form.phone.value;
+        const message = form.message.value;
+
+        // You can add more validations here
+
+        console.log("Form submitted: ", { name, email, phone, message });
+
+        // Show success toast
+        toast.success("Form submitted successfully! 🎉");
+
+        // Reset form
+        form.reset();
+    };
 
     return (
         <div 
@@ -77,17 +97,18 @@ const Contact = () => {
             </div>
 
             {/* Contact Form Section */}
-            <div className="flex-1 ml-36">
-                <div className="shadow-xl px-8 py-8">
-                    <form className="space-y-3">
+            <div className="flex-1 ml-28 rounded-xl">
+                <div className="shadow-lg border-1 border-[#e9e3cd]  px-8 py-8">
+                    <form onSubmit={handleFormSubmit} className="space-y-3">
                         <div>
-                            <h3 className="text-3xl font-bold">Get in Touch</h3>
+                            <h3 className="text-3xl text-[#00a23d] font-bold">Get <span className="text-[#6cc800]">in</span> Touch</h3>
                         </div>
                         <div className="form-control">
                             <input 
                                 type="text" 
                                 placeholder="Your Name" 
-                                className="input input-bordered font-medium bg-[#F4F4F4] w-[420px]" 
+                                className="input input-bordered font-medium bg-[#F4F4F4] w-[500px]" 
+                                name="name"
                                 required 
                             />
                         </div>
@@ -95,7 +116,8 @@ const Contact = () => {
                             <input 
                                 type="email" 
                                 placeholder="Email Address" 
-                                className="input input-bordered font-medium bg-[#F4F4F4] w-[420px]" 
+                                className="input input-bordered font-medium bg-[#F4F4F4] w-[500px]" 
+                                name="email"
                                 required 
                             />
                         </div>
@@ -103,7 +125,8 @@ const Contact = () => {
                             <input 
                                 type="text" 
                                 placeholder="Phone Number" 
-                                className="input input-bordered font-medium bg-[#F4F4F4] w-[420px]" 
+                                className="input input-bordered font-medium bg-[#F4F4F4] w-[500px]" 
+                                name="phone"
                                 required 
                             />
                         </div>
@@ -111,19 +134,21 @@ const Contact = () => {
                             <textarea 
                                 name="message" 
                                 placeholder="  Message" 
-                                cols="50" 
                                 rows="6" 
-                                className="border-1 border-gray-300 font-medium bg-[#F4F4F4] rounded-lg"
+                                className="border-1 border-gray-300 font-medium bg-[#F4F4F4] w-[500px] rounded-lg"
                             ></textarea>
                         </div>
                         <div className="form-control mt-3">
-                            <button className="btn font-semibold rounded-md text-white bg-gradient-to-r from-green-700 via-green-600 to-lime-500 hover:from-green-800 hover:via-green-700 hover:to-lime-600 transition-all duration-300 px-8">
+                            <button type="submit" className="btn font-semibold rounded-md text-white bg-gradient-to-r from-green-700 via-green-600 to-lime-500 hover:from-green-800 hover:via-green-700 hover:to-lime-600 transition-all duration-300 px-8">
                                 Submit
                             </button>
                         </div>
                     </form>
                 </div>
             </div>
+
+            {/* Toast Component */}
+            <Toaster position="top-right" reverseOrder={false} />
         </div>
     );
 };
