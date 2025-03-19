@@ -53,10 +53,10 @@ const Skill = () => {
             {/* Left Content */}
             <div className="pr-10 flex-1">
                 <div>
-                    <h2 className="text-4xl font-bold text-gray-800 mb-4">Our Skills</h2>
+                    <h2 className="text-4xl font-bold text-gray-800 mb-4"><span className="text-[#00730c]">O</span>ur <span className="text-[#75cb00]">S</span>kills</h2>
                     <p className="text-gray-600 text-lg font-medium mb-6">
                         We specialize in planting and nurturing trees to create a greener, healthier environment.
-                        Our skilled team is dedicated to sustainable reforestation, urban gardening, and eco-friendly landscaping,
+                        Our skilled team is dedicated to <span className="text-[#00730c] font-bold">sustainable reforestation, urban gardening, and eco-friendly landscaping, </span>
                         ensuring a positive impact on nature.
                     </p>
                     <div className="flex gap-12 mb-10">

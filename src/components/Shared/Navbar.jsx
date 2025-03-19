@@ -20,11 +20,11 @@ const Navbar = () => {
                     <img className="w-[100px] flex items-center" src={plantLogo} alt="" />
                 </div>
                 <div className="flex item-center text-lg font-bold py-5 space-x-14">
-                    <NavLink>Home</NavLink>
-                    <NavLink>Add Blog</NavLink>
-                    <NavLink>All blogs</NavLink>
-                    <NavLink>Featured Blogs</NavLink>
-                    <NavLink>Wishlist</NavLink>
+                    <NavLink to="/" className="hover:text-[#41b823]">Home</NavLink>
+                    <NavLink to="/addBlog" className="hover:text-[#41b823]">Add Blog</NavLink>
+                    <NavLink className="hover:text-[#41b823]">All blogs</NavLink>
+                    <NavLink className="hover:text-[#41b823]">Featured Blogs</NavLink>
+                    <NavLink className="hover:text-[#41b823]">Wishlist</NavLink>
                 </div>
                 <div className="flex item-center py-3 space-x-8">
                     {
