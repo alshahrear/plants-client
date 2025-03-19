@@ -1,4 +1,5 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
+import "animate.css";
 import skill from "../../../assets/skill.png";
 
 const Skill = () => {
@@ -16,68 +17,98 @@ const Skill = () => {
         teamMembers: 0,
     });
 
+    const [isVisible, setIsVisible] = useState(false);
+    const skillRef = useRef(null);
+
     useEffect(() => {
-        // Start counting the numbers for "500+", "800+", "100+" after component mount
-        const countUp = (target, setter, key) => {
-            let count = 0;
-            const interval = setInterval(() => {
-                if (count < target) {
-                    count++;
-                    setter(prevState => ({ ...prevState, [key]: count }));
-                } else {
-                    clearInterval(interval);
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                if (entry.isIntersecting) {
+                    setIsVisible(true);
+                    observer.disconnect(); // একবার দেখা গেলে বারবার ট্রিগার হবে না
                 }
-            }, 5); // adjust speed by changing the interval (5ms for fast counting)
-        };
+            },
+            { threshold: 0.3 }
+        );
 
-        countUp(500, setStats, "happyCustomers");
-        countUp(800, setStats, "gardenCreated");
-        countUp(100, setStats, "teamMembers");
+        if (skillRef.current) {
+            observer.observe(skillRef.current);
+        }
 
-        // Progress bars animation
-        progressData.forEach((item, index) => {
-            setTimeout(() => {
-                setProgress((prevProgress) =>
-                    prevProgress.map((data, idx) =>
-                        idx === index
-                            ? { ...data, animatedPercentage: item.percentage }
-                            : data
-                    )
-                );
-            }, 500 * index);
-        });
+        return () => observer.disconnect();
     }, []);
 
+    useEffect(() => {
+        if (isVisible) {
+            // সংখ্যাগুলো কাউন্ট আপ হবে
+            const countUp = (target, setter, key) => {
+                let count = 0;
+                const interval = setInterval(() => {
+                    if (count < target) {
+                        count++;
+                        setter(prevState => ({ ...prevState, [key]: count }));
+                    } else {
+                        clearInterval(interval);
+                    }
+                }, 5);
+            };
+
+            countUp(500, setStats, "happyCustomers");
+            countUp(800, setStats, "gardenCreated");
+            countUp(100, setStats, "teamMembers");
+
+            // Progress bar animation
+            progressData.forEach((item, index) => {
+                setTimeout(() => {
+                    setProgress((prevProgress) =>
+                        prevProgress.map((data, idx) =>
+                            idx === index
+                                ? { ...data, animatedPercentage: item.percentage }
+                                : data
+                        )
+                    );
+                }, 500 * index);
+            });
+        }
+    }, [isVisible]);
+
     return (
-        <div className="flex justify-between w-[1200px] mx-auto mb-20 items-center">
+        <div
+            ref={skillRef}
+            className="flex justify-between w-[1200px] mx-auto  items-center"
+        >
             {/* Left Content */}
             <div className="pr-10 flex-1">
                 <div>
-                    <h2 className="text-4xl font-bold text-gray-800 mb-4"><span className="text-[#00730c]">O</span>ur <span className="text-[#75cb00]">S</span>kills</h2>
+                    <h2
+                        className={`text-4xl font-bold text-gray-800 mb-4 ${
+                            isVisible ? "animate__animated animate__rotateIn" : ""
+                        }`}
+                    >
+                        <span className="text-[#00730c]">O</span>ur{" "}
+                        <span className="text-[#75cb00]">S</span>kills
+                    </h2>
                     <p className="text-gray-600 text-lg font-medium mb-6">
                         We specialize in planting and nurturing trees to create a greener, healthier environment.
-                        Our skilled team is dedicated to <span className="text-[#00730c] font-bold">sustainable reforestation, urban gardening, and eco-friendly landscaping, </span>
+                        Our skilled team is dedicated to{" "}
+                        <span className="text-[#00730c] font-bold">
+                            sustainable reforestation, urban gardening, and eco-friendly landscaping,{" "}
+                        </span>
                         ensuring a positive impact on nature.
                     </p>
                     <div className="flex gap-12 mb-10">
-                        <div className="flex items-center gap-2">
-                            <div className="w-14 h-14 flex justify-center items-center bg-gradient-to-r from-[#aaceae] to-[#d3e5d5] rounded-full">
-                                <p className="text-lg font-bold">{stats.happyCustomers}+</p>
+                        {[ 
+                            { label: <><span>Happy</span><br/><span>Customers</span></>, value: stats.happyCustomers },
+                            { label: "Garden Created", value: stats.gardenCreated },
+                            { label: "Team Members", value: stats.teamMembers },
+                        ].map((item, index) => (
+                            <div key={index} className="flex items-center gap-2">
+                                <div className="w-14 h-14 flex justify-center items-center bg-gradient-to-r from-[#aaceae] to-[#d3e5d5] rounded-full">
+                                    <p className="text-lg font-bold">{item.value}+</p>
+                                </div>
+                                <p className="font-bold">{item.label}</p>
                             </div>
-                            <p className="font-bold">Happy <br /> Customers</p>
-                        </div>
-                        <div className="flex items-center gap-2">
-                            <div className="w-14 h-14 flex justify-center items-center bg-gradient-to-r from-[#aaceae] to-[#d3e5d5] rounded-full">
-                                <p className="text-lg font-bold">{stats.gardenCreated}+</p>
-                            </div>
-                            <p className="font-bold">Garden <br /> Created</p>
-                        </div>
-                        <div className="flex items-center gap-2">
-                            <div className="w-14 h-14 flex justify-center items-center bg-gradient-to-r from-[#aaceae] to-[#d3e5d5] rounded-full">
-                                <p className="text-lg font-bold">{stats.teamMembers}+</p>
-                            </div>
-                            <p className="font-bold">Team <br /> Members</p>
-                        </div>
+                        ))}
                     </div>
                 </div>
                 {/* Progress Bars */}
@@ -103,7 +134,11 @@ const Skill = () => {
 
             {/* Right Image */}
             <div className="flex-1 flex justify-end">
-                <img className="w-[70%] border-r-16 border-t-16 border-[#47ba1f] rounded-xl" src={skill} alt="Skill Image" />
+                <img
+                    className="w-[70%] border-r-16 border-t-16 border-[#47ba1f] rounded-xl"
+                    src={skill}
+                    alt="Skill Image"
+                />
             </div>
         </div>
     );

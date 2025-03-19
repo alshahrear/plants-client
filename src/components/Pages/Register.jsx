@@ -76,7 +76,9 @@ const Register = () => {
                 Premium <span className="text-[#00730c]">Gardening and Lawn Care</span> Solutions
                 </h2>
                 <p className="text-lg font-medium">Welcome to Our Best Reliable Gardening and Lawn Services! We are dedicated to providing top-quality <span className="text-[#00730c] font-bold">gardening, lawn care, and landscaping</span> solutions to keep your surroundings green and beautiful. Register now to get expert care for your plants and create a refreshing outdoor space effortlessly!</p>
+                <Link to="/contact">
                 <button className="btn font-semibold rounded-md text-white bg-gradient-to-r from-green-700 via-green-600 to-lime-500 hover:from-green-800 hover:via-green-700 hover:to-lime-600 transition-all duration-300 shadow-md"><span><TbPhoneCalling className="text-lg"></TbPhoneCalling></span> Call Us</button>
+                </Link>
             </div>
             <motion.div
                 className="w-1/4 absolute top-0 left-1/2 transform -translate-x-1/2"

@@ -8,6 +8,7 @@ import GoogleLogin from "./GoogleLogin";
 import { AuthContext } from "../Provider/AuthProvider";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import divider from "../../assets/divider.png";
 
 
 const Login = () => {
@@ -50,12 +51,14 @@ const Login = () => {
                 <h2 className="text-4xl font-bold leading-12" >
                     Our Best Reliable <span className="text-[#00730c]">Gardening and Lawn</span> services
                 </h2>
+                <Link to="/contact">
                 <button className="btn font-semibold rounded-md text-white bg-gradient-to-r from-green-700 via-green-600 to-lime-500 hover:from-green-800 hover:via-green-700 hover:to-lime-600 transition-all duration-300 shadow-md"><span><TbPhoneCalling className="text-lg"></TbPhoneCalling></span> Call Us</button>
+                </Link>
             </div>
             <motion.div
-                className="w-1/4 absolute top-0 left-1/2 transform -translate-x-1/2"
+                className="w-1/3 absolute top-0 left-1/2 transform -translate-x-1/2"
                 animate={{
-                    rotate: [-25, 25, -25],
+                    rotate: [-20, 20, -20],
                 }}
                 transition={{
                     duration: 3,
@@ -63,7 +66,7 @@ const Login = () => {
                     ease: "easeInOut",
                 }}
             >
-                <img src={leaves} alt="" />
+                <img src={divider} alt="" />
             </motion.div>
             <div className="w-1/3">
                 <form onSubmit={handleLogin}>

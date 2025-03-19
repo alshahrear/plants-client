@@ -2,7 +2,7 @@
 
 const AddBlog = () => {
     return (
-        <div className="pb-20 bg-gradient-to-r from-green-100 via-white to-green-100">
+        <div className="pb-20 bg-[#c3eb9b]">
             <div className="w-[1200px] mx-auto">
             <form>
                 <div className="card-body ">
@@ -11,14 +11,14 @@ const AddBlog = () => {
                     <div className="flex text-lg font-semibold">
                         <div className="">
                             <label className="fieldset-label">Title</label>
-                            <input type="text" name="title" className="input w-[550px]" placeholder="Blog Title" />
+                            <input type="text" name="title" className="input w-[550px] bg-[#e2fdeb]" placeholder="Blog Title" />
                         </div>
                         <div className="ml-10">
                                 <label className="fieldset-label">Category</label>
                                 <input
                                     type="text"
                                     name="category"
-                                    className="input w-[550px]"
+                                    className="input w-[550px] bg-[#e2fdeb]"
                                     placeholder="Yes/No"
                                     list="category-options"
                                 />
@@ -29,22 +29,21 @@ const AddBlog = () => {
                             </div>
                     </div>
 
-
                     {/* another */}
                     <fieldset className="flex text-lg font-semibold">
                         <div className="">
                         <label className="fieldset-label">Short Description</label>
-                            <input type="text" name="shortDescription" className="input w-[550px]" placeholder="Short Description" />
+                            <input type="text" name="shortDescription" className="input w-[550px] bg-[#e2fdeb]" placeholder="Short Description" />
                         </div>
                         <div className="ml-10">
                         <label className="fieldset-label">Image URL</label>
-                        <input type="text" name="imageURL" className="input w-[550px]" placeholder="Image URL" />
+                        <input type="text" name="imageURL" className="input w-[550px] bg-[#e2fdeb]" placeholder="Image URL" />
                     </div>
                     </fieldset>
                     <fieldset className="flex text-lg font-semibold">
                         <div className="">
                         <label className="fieldset-label">Long Description</label>
-                            <textarea className="bg-white rounded-lg border-1 border-gray-300 w-[1140px]" name="" id="" cols="30" rows="5" placeholder=" White Your Description"></textarea>
+                            <textarea className="bg-[#e2fdeb] rounded-lg border-1 border-gray-300 w-[1140px]" name="" id="" cols="30" rows="5" placeholder=" White Your Description"></textarea>
                         </div>
                     </fieldset>
                     {/* another */}
