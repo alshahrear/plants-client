@@ -1,6 +1,5 @@
 import { motion } from "framer-motion";
 import { useContext, useState } from "react";
-import leaves from "../../assets/leaves.png";
 import { Link } from "react-router-dom";
 import { FaEye, FaEyeSlash } from "react-icons/fa6";
 import { TbPhoneCalling } from "react-icons/tb";

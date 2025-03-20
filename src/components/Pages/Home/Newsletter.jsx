@@ -62,7 +62,7 @@ const Newsletter = () => {
                 <div className={`relative z-10 space-y-3 ${isVisible ? "animate__animated animate__zoomInUp" : "opacity-0"}`}>
                     <h2 className="text-xl font-bold">Stay Connected with Nature! 🌿</h2>
                     <p className="text-lg font-semibold">
-                        Subscribe to our newsletter for eco-friendly tips, special offers, <br /> and the latest updates on new plants! 🌱
+                        Subscribe to our <span className="text-xl text-[#e6e94d] font-bold">Newsletter</span> for eco-friendly tips, special offers, <br /> and the latest updates on new plants! 🌱
                     </p>
                     <form onSubmit={handleNewsletter} className="space-y-3">
                         <input

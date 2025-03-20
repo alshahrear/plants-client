@@ -1,4 +1,5 @@
 import woman from "../../../assets/woman.png";
+import { MdFileDownloadDone } from "react-icons/md";
 
 const RecentBlog = () => {
     return (
@@ -21,7 +22,7 @@ const RecentBlog = () => {
                         <p className="text-[16px] font-semibold">🌳 Tree Planting Tips</p>
                         <div className="card-actions justify-between">
                             <div className="btn font-semibold rounded-md text-white bg-gradient-to-r from-green-700 via-green-600 to-lime-500 hover:from-green-800 hover:via-green-700 hover:to-lime-600 transition-all duration-300 shadow-md">📖 Read More</div>
-                            <div className="btn font-semibold rounded-md text-white bg-gradient-to-r from-green-700 via-green-600 to-lime-500 hover:from-green-800 hover:via-green-700 hover:to-lime-600 transition-all duration-300 shadow-md">🌿 Add to Wishlist </div>
+                            <div className="btn font-semibold rounded-md text-white bg-gradient-to-r from-green-700 via-green-600 to-lime-500 hover:from-green-800 hover:via-green-700 hover:to-lime-600 transition-all duration-300 shadow-md"><MdFileDownloadDone className="text-xl"></MdFileDownloadDone> Add to Wishlist </div>
                         </div>
                     </div>
                 </div>

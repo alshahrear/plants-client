@@ -53,7 +53,7 @@ const Contact = () => {
             <div className="space-y-10 flex-1">
                 <h2 className="text-4xl font-bold">
                     <span className="text-[#00730c]">C</span>ontact 
-                    <span className="text-[#75cb00]">U</span>s
+                    <span className="text-[#75cb00]"> U</span>s
                 </h2>
                 <p className="text-gray-700 -mt-5">
                     Have questions or want to get involved in our tree-planting initiative? We'd love to hear from you! Whether you're looking to volunteer, donate, or simply learn more about our mission, our team is here to assist you. Feel free to reach out via email, phone, or visit us in person. Together, we can create a greener and healthier planet for future generations! 🌿🌍

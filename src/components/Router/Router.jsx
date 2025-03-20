@@ -7,6 +7,8 @@ import Register from "../Pages/Register";
 import AddBlog from "../Pages/AddBlog";
 import Contact from "../Pages/Home/Contact";
 import AllBlogs from "../Pages/AllBlogs";
+import Wishlist from "../Pages/Wishlist";
+import Feature from "../Pages/Feature";
 
 const router = createBrowserRouter([
     {
@@ -37,7 +39,15 @@ const router = createBrowserRouter([
         {
           path: "/allBlogs",
           element: <AllBlogs></AllBlogs>
-        }
+        },
+        {
+          path: "/wishlist",
+          element: <Wishlist></Wishlist>
+        },
+        {
+          path: "/feature",
+          element: <Feature></Feature>
+        },
       ]
     },
   ]);
