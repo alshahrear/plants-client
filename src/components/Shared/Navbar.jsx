@@ -14,11 +14,11 @@ const Navbar = () => {
 
     return (
         <div className="shadow-xl mt-1">
-            <div className="w-[1200px] mx-auto flex item-center space-x-16">
+            <div className="w-[1200px] mx-auto flex item-center space-x-20">
                 <div className="flex items-center -mt-1">
                     <img className="w-[100px] flex items-center" src={plantLogo} alt="" />
                 </div>
-                <div className="flex item-center text-lg font-bold py-5 space-x-14">
+                <div className="flex item-center text-lg font-bold py-5 space-x-20">
                     <NavLink 
                         to="/" 
                         className={({ isActive }) => 
@@ -42,14 +42,6 @@ const Navbar = () => {
                         }
                     >
                         All blogs
-                    </NavLink>
-                    <NavLink 
-                        to="/myBlog" 
-                        className={({ isActive }) => 
-                            isActive ? "text-[#41b823]" : "hover:text-yellow-500"
-                        }
-                    >
-                        My blogs
                     </NavLink>
                     <NavLink to="/feature"
                         className={({ isActive }) => 

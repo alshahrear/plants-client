@@ -9,6 +9,7 @@ import Contact from "../Pages/Home/Contact";
 import AllBlogs from "../Pages/AllBlogs";
 import Wishlist from "../Pages/Wishlist";
 import Feature from "../Pages/Feature";
+import PrivetRoute from "../Pages/PrivetRoute";
 
 const router = createBrowserRouter([
     {
@@ -30,7 +31,7 @@ const router = createBrowserRouter([
         },
         {
           path: "/addBlog",
-          element: <AddBlog></AddBlog>
+          element: <PrivetRoute><AddBlog></AddBlog></PrivetRoute>
         },
         {
           path: "/contact",
@@ -42,7 +43,7 @@ const router = createBrowserRouter([
         },
         {
           path: "/wishlist",
-          element: <Wishlist></Wishlist>
+          element: <PrivetRoute><Wishlist></Wishlist></PrivetRoute>
         },
         {
           path: "/feature",

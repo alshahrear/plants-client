@@ -2,23 +2,24 @@ import { FcGoogle } from "react-icons/fc";
 import { SiGithub } from "react-icons/si";
 import { auth } from "../firebase/firebase.config";
 import { GithubAuthProvider, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
-// import { useLocation, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import "animate.css";
 
+const GoogleLogin = () => {
 
-const googleProvider = new GoogleAuthProvider();
+    const googleProvider = new GoogleAuthProvider();
 const githubProvider = new GithubAuthProvider();
 
-// const location = useLocation();
-// const navigate = useNavigate();
+const location = useLocation();
+const navigate = useNavigate();
 
 const handleGoogleLogin = () => {
     signInWithPopup(auth, googleProvider)
         .then(result => {
             console.log(result.user);
-            // const redirectPath = location.state?.from?.pathname || "/";
-            // console.log("Redirecting to:", redirectPath);
-            // navigate(redirectPath);
+            const redirectPath = location.state?.from?.pathname || "/";
+            console.log("Redirecting to:", redirectPath);
+            navigate(redirectPath);
         })
         .catch(error => {
             console.error(error);
@@ -29,16 +30,15 @@ const handleGithubLogin = () => {
     signInWithPopup(auth, githubProvider)
         .then(result => {
             console.log(result.user);
-            // const redirectPath = location.state?.from?.pathname || "/";
-            // console.log("Redirecting to:", redirectPath);
-            // navigate(redirectPath);
+            const redirectPath = location.state?.from?.pathname || "/";
+            console.log("Redirecting to:", redirectPath);
+            navigate(redirectPath);
         })
         .catch(error => {
             console.error(error);
         });
 };
 
-const GoogleLogin = () => {
     return (
         <div className="flex justify-center">
             <div className="animate__animated animate__slideInRight">

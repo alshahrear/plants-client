@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { useContext, useState } from "react";
 import leaves from "../../assets/leaves.png";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FaEye, FaEyeSlash } from "react-icons/fa6";
 import { TbPhoneCalling } from "react-icons/tb";
 import { ToastContainer, toast } from "react-toastify";
@@ -12,7 +12,10 @@ import { AuthContext } from "../Provider/AuthProvider";
 const Register = () => {
     const [showPassword, setShowPassword] = useState(false);
     const { createUser } = useContext(AuthContext);
-    
+    const location = useLocation();
+    const navigate = useNavigate();
+
+
     const handleRegister = e => {
         e.preventDefault();
         const form = e.target;
@@ -55,9 +58,9 @@ const Register = () => {
                 // .then( () => console.log('Profile Updated'))
                 // .catch()
 
-                // const redirectPath = location.state?.from?.pathname || "/";
-                // console.log("Redirecting to:", redirectPath);
-                // navigate(redirectPath);
+                const redirectPath = location.state?.from?.pathname || "/";
+                console.log("Redirecting to:", redirectPath);
+                navigate(redirectPath);
             })
             .catch(error => {
                 console.error(error);

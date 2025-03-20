@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { useContext, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FaEye, FaEyeSlash } from "react-icons/fa6";
 import { TbPhoneCalling } from "react-icons/tb";
 import GoogleLogin from "./GoogleLogin";
@@ -13,6 +13,8 @@ import divider from "../../assets/divider.png";
 const Login = () => {
     const [showPassword, setShowPassword] = useState(false);
     const { signIn } = useContext(AuthContext);
+    const location = useLocation();
+    const navigate = useNavigate();
 
     const handleLogin = e => {
         e.preventDefault();
@@ -29,9 +31,9 @@ const Login = () => {
                     autoClose: 2000,
                 });
                 
-                // const redirectPath = location.state?.from?.pathname || "/";
-                // console.log("Redirecting to:", redirectPath);
-                // navigate(redirectPath);
+                const redirectPath = location.state?.from?.pathname || "/";
+                console.log("Redirecting to:", redirectPath);
+                navigate(redirectPath);
             })
             .catch(error => {
                 console.error(error);
@@ -43,7 +45,7 @@ const Login = () => {
             });
     }
 
-
+    
     return (
         <div className="pt-12 pb-20 px-12 flex justify-between items-center bg-gradient-to-r from-green-100 via-white to-green-100 relative" >
             <div className="w-1/3 bg-cover bg-center bg-no-repeat space-y-5" >
