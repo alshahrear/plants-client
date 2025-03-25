@@ -7,9 +7,9 @@ import Register from "../Pages/Register";
 import AddBlog from "../Pages/AddBlog";
 import Contact from "../Pages/Home/Contact";
 import AllBlogs from "../Pages/AllBlogs";
-import Wishlist from "../Pages/Wishlist";
-import Feature from "../Pages/Feature";
 import PrivetRoute from "../Pages/PrivetRoute";
+import Wishlists from "../Pages/Wishlists";
+import Features from "../Pages/Features";
 
 const router = createBrowserRouter([
     {
@@ -39,15 +39,16 @@ const router = createBrowserRouter([
         },
         {
           path: "/allBlogs",
-          element: <AllBlogs></AllBlogs>
+          element: <AllBlogs></AllBlogs>,
+          // loader: () => fetch('http://localhost:5000/blogs')
         },
         {
-          path: "/wishlist",
-          element: <PrivetRoute><Wishlist></Wishlist></PrivetRoute>
+          path: "/wishlists",
+          element: <PrivetRoute><Wishlists></Wishlists></PrivetRoute>
         },
         {
-          path: "/feature",
-          element: <Feature></Feature>
+          path: "/features",
+          element: <Features></Features>
         },
       ]
     },

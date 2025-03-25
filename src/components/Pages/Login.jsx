@@ -1,18 +1,20 @@
 import { motion } from "framer-motion";
-import { useContext, useState } from "react";
+import { useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FaEye, FaEyeSlash } from "react-icons/fa6";
 import { TbPhoneCalling } from "react-icons/tb";
 import GoogleLogin from "./GoogleLogin";
-import { AuthContext } from "../Provider/AuthProvider";
+// import { AuthContext } from "../Provider/AuthProvider";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import divider from "../../assets/divider.png";
+import useAuth from "../useAuth";
 
 
 const Login = () => {
     const [showPassword, setShowPassword] = useState(false);
-    const { signIn } = useContext(AuthContext);
+    // const { signIn } = useContext(AuthContext);
+    const {signIn} = useAuth();
     const location = useLocation();
     const navigate = useNavigate();
 

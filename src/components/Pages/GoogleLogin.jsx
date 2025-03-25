@@ -8,36 +8,36 @@ import "animate.css";
 const GoogleLogin = () => {
 
     const googleProvider = new GoogleAuthProvider();
-const githubProvider = new GithubAuthProvider();
+    const githubProvider = new GithubAuthProvider();
 
-const location = useLocation();
-const navigate = useNavigate();
+    const location = useLocation();
+    const navigate = useNavigate();
 
-const handleGoogleLogin = () => {
-    signInWithPopup(auth, googleProvider)
-        .then(result => {
-            console.log(result.user);
-            const redirectPath = location.state?.from?.pathname || "/";
-            console.log("Redirecting to:", redirectPath);
-            navigate(redirectPath);
-        })
-        .catch(error => {
-            console.error(error);
-        });
-};
+    const handleGoogleLogin = () => {
+        signInWithPopup(auth, googleProvider)
+            .then(result => {
+                console.log(result.user);
+                const redirectPath = location.state?.from?.pathname || "/";
+                console.log("Redirecting to:", redirectPath);
+                navigate(redirectPath);
+            })
+            .catch(error => {
+                console.error(error);
+            });
+    };
 
-const handleGithubLogin = () => {
-    signInWithPopup(auth, githubProvider)
-        .then(result => {
-            console.log(result.user);
-            const redirectPath = location.state?.from?.pathname || "/";
-            console.log("Redirecting to:", redirectPath);
-            navigate(redirectPath);
-        })
-        .catch(error => {
-            console.error(error);
-        });
-};
+    const handleGithubLogin = () => {
+        signInWithPopup(auth, githubProvider)
+            .then(result => {
+                console.log(result.user);
+                const redirectPath = location.state?.from?.pathname || "/";
+                console.log("Redirecting to:", redirectPath);
+                navigate(redirectPath);
+            })
+            .catch(error => {
+                console.error(error);
+            });
+    };
 
     return (
         <div className="flex justify-center">

@@ -1,10 +1,12 @@
 import { Link, NavLink } from "react-router-dom";
 import plantLogo from "../../assets/plantLogo.png";
-import { useContext } from "react";
-import { AuthContext } from "../Provider/AuthProvider";
+// import { useContext } from "react";
+// import { AuthContext } from "../Provider/AuthProvider";
+import useAuth from "../useAuth";
 
 const Navbar = () => {
-    const { user, logOut } = useContext(AuthContext);
+    // const { user, logOut } = useContext(AuthContext);
+    const { user, logOut } = useAuth();
 
     const handleSignOut = () => {
         logOut()
@@ -43,7 +45,7 @@ const Navbar = () => {
                     >
                         All blogs
                     </NavLink>
-                    <NavLink to="/feature"
+                    <NavLink to="/features"
                         className={({ isActive }) => 
                             isActive ? "text-[#41b823]" : "hover:text-yellow-500"
                         }
@@ -51,7 +53,7 @@ const Navbar = () => {
                         Featured Blogs
                     </NavLink>
                     <NavLink 
-                        to="/wishlist" 
+                        to="/wishlists" 
                         className={({ isActive }) => 
                             isActive ? "text-[#41b823]" : "hover:text-yellow-500"
                         }
@@ -78,7 +80,7 @@ const Navbar = () => {
                                 }
 
                                 <Link to="/login">
-                                    <button onClick={handleSignOut} className="btn font-medium text-white bg-gradient-to-r from-green-700 via-green-600 to-lime-500 hover:from-green-800 hover:via-green-700 hover:to-lime-600 transition-all duration-300 px-7 py-3 rounded-lg">
+                                    <button onClick={handleSignOut} className="btn font-medium text-white bg-gradient-to-r from-green-700 via-green-600 to-lime-500 hover:from-green-800 hover:via-green-700 hover:to-lime-600 transition-all duration-300 px-7 py-3 rounded-lg ml-10">
                                         Log Out
                                     </button>
                                 </Link>
@@ -86,7 +88,7 @@ const Navbar = () => {
                         : 
                             <>
                                 <Link to="/login">
-                                    <button className="btn font-medium text-white bg-gradient-to-r from-green-700 via-green-600 to-lime-500 hover:from-green-800 hover:via-green-700 hover:to-lime-600 transition-all duration-300 px-7 py-3 rounded-lg">
+                                    <button className="btn font-medium text-white bg-gradient-to-r from-green-700 via-green-600 to-lime-500 hover:from-green-800 hover:via-green-700 hover:to-lime-600 transition-all duration-300 px-7 py-3 rounded-lg ml-1">
                                         Login
                                     </button>
                                 </Link>
