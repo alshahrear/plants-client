@@ -9,12 +9,13 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import divider from "../../assets/divider.png";
 import useAuth from "../useAuth";
+import { Helmet } from "react-helmet-async";
 
 
 const Login = () => {
     const [showPassword, setShowPassword] = useState(false);
     // const { signIn } = useContext(AuthContext);
-    const {signIn} = useAuth();
+    const { signIn } = useAuth();
     const location = useLocation();
     const navigate = useNavigate();
 
@@ -32,7 +33,7 @@ const Login = () => {
                     position: "top-right",
                     autoClose: 2000,
                 });
-                
+
                 const redirectPath = location.state?.from?.pathname || "/";
                 console.log("Redirecting to:", redirectPath);
                 navigate(redirectPath);
@@ -47,15 +48,18 @@ const Login = () => {
             });
     }
 
-    
+
     return (
         <div className="pt-12 pb-20 px-12 flex justify-between items-center bg-gradient-to-r from-green-100 via-white to-green-100 relative" >
+            <Helmet>
+                <title>PLant's Tree - Login</title>
+            </Helmet>
             <div className="w-1/3 bg-cover bg-center bg-no-repeat space-y-5" >
                 <h2 className="text-4xl font-bold leading-12" >
                     Our Best Reliable <span className="text-[#00730c]">Gardening and Lawn</span> services
                 </h2>
                 <Link to="/contact">
-                <button className="btn font-semibold rounded-md text-white bg-gradient-to-r from-green-700 via-green-600 to-lime-500 hover:from-green-800 hover:via-green-700 hover:to-lime-600 transition-all duration-300 shadow-md"><span><TbPhoneCalling className="text-lg"></TbPhoneCalling></span> Call Us</button>
+                    <button className="btn font-semibold rounded-md text-white bg-gradient-to-r from-green-700 via-green-600 to-lime-500 hover:from-green-800 hover:via-green-700 hover:to-lime-600 transition-all duration-300 shadow-md"><span><TbPhoneCalling className="text-lg"></TbPhoneCalling></span> Call Us</button>
                 </Link>
             </div>
             <motion.div
@@ -124,7 +128,7 @@ const Login = () => {
                 </div>
                 <ToastContainer />
             </div>
-           
+
         </div>
     );
 };

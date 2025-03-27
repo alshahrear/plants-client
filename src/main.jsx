@@ -6,6 +6,7 @@ import {
 } from "react-router-dom";
 import router from './components/Router/Router.jsx';
 import AuthProvider, { AuthContext } from './components/Provider/AuthProvider.jsx';
+import { HelmetProvider } from 'react-helmet-async';
 
 
 const LoadingSpinner = () => (
@@ -18,19 +19,21 @@ const LoadingSpinner = () => (
 const Main = () => {
   const { loading } = useContext(AuthContext);
 
- 
+
   if (loading) {
     return <LoadingSpinner />;
   }
 
- 
+
   return <RouterProvider router={router} />;
 };
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <AuthProvider>
-      <Main />
-    </AuthProvider>
+    <HelmetProvider>
+      <AuthProvider>
+        <Main />
+      </AuthProvider>
+    </HelmetProvider>
   </StrictMode>
 );

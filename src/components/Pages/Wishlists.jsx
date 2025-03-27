@@ -1,10 +1,14 @@
+import { Helmet } from "react-helmet-async";
+import Wishlist from "./Wishlist";
+
 const Wishlists = () => {
     return (
-        <div className="pb-20 pt-10  bg-[#f4f7f2]">
-                    <div className="w-[1200px] mx-auto grid grid-cols-3 gap-10">
-                     
-                    </div>
-                </div>
+        <div className="pb-20 pt-10 bg-[#f4f7f2]">
+            <Helmet>
+                <title>PLant's Tree - Wishlist</title>
+            </Helmet>
+            <Wishlist />
+        </div>
     );
 };
 

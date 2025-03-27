@@ -7,6 +7,7 @@ import { TbPhoneCalling } from "react-icons/tb";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { AuthContext } from "../Provider/AuthProvider";
+import { Helmet } from "react-helmet-async";
 
 
 const Register = () => {
@@ -74,13 +75,16 @@ const Register = () => {
 
     return (
         <div className="pt-12 pb-20 px-12 flex justify-between items-center bg-gradient-to-r from-green-100 via-white to-green-100 relative" >
+            <Helmet>
+                <title>PLant's Tree - Register</title>
+            </Helmet>
             <div className="w-1/3 bg-cover bg-center bg-no-repeat space-y-5" >
                 <h2 className="text-4xl font-bold leading-12" >
-                Premium <span className="text-[#00730c]">Gardening and Lawn Care</span> Solutions
+                    Premium <span className="text-[#00730c]">Gardening and Lawn Care</span> Solutions
                 </h2>
                 <p className="text-lg font-medium">Welcome to Our Best Reliable Gardening and Lawn Services! We are dedicated to providing top-quality <span className="text-[#00730c] font-bold">gardening, lawn care, and landscaping</span> solutions to keep your surroundings green and beautiful. Register now to get expert care for your plants and create a refreshing outdoor space effortlessly!</p>
                 <Link to="/contact">
-                <button className="btn font-semibold rounded-md text-white bg-gradient-to-r from-green-700 via-green-600 to-lime-500 hover:from-green-800 hover:via-green-700 hover:to-lime-600 transition-all duration-300 shadow-md"><span><TbPhoneCalling className="text-lg"></TbPhoneCalling></span> Call Us</button>
+                    <button className="btn font-semibold rounded-md text-white bg-gradient-to-r from-green-700 via-green-600 to-lime-500 hover:from-green-800 hover:via-green-700 hover:to-lime-600 transition-all duration-300 shadow-md"><span><TbPhoneCalling className="text-lg"></TbPhoneCalling></span> Call Us</button>
                 </Link>
             </div>
             <motion.div
@@ -156,7 +160,7 @@ const Register = () => {
                 </form>
                 <ToastContainer />
             </div>
-            
+
         </div>
     );
 };

@@ -6,9 +6,12 @@
 //     const [wishlist, setWishlist] = useState([]);
 
 //     const addToWishlist = (blog) => {
-//         if (!wishlist.some(item => item._id === blog._id)) {
-//             setWishlist([...wishlist, blog]);
-//         }
+//         setWishlist((prev) => {
+//             if (!prev.find((item) => item._id === blog._id)) {
+//                 return [...prev, blog];
+//             }
+//             return prev;
+//         });
 //     };
 
 //     return (

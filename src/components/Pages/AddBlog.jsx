@@ -2,6 +2,7 @@ import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer } from 'react-toastify';
 import useAuth from '../useAuth';
+import { Helmet } from 'react-helmet-async';
 
 const AddBlog = () => {
     const { user } = useAuth();
@@ -16,7 +17,7 @@ const AddBlog = () => {
         const imageURL = form.imageURL.value;
         const ownerName = user?.displayName || "Anonymous";
         const ownerPhoto = user?.photoURL || "https://via.placeholder.com/150";
-        
+
         const addBlog = {
             title,
             category,
@@ -36,21 +37,24 @@ const AddBlog = () => {
             },
             body: JSON.stringify(addBlog)
         })
-        .then(res => res.json())
-        .then(data => {
-            console.log(data);
-            if (data.insertedId) {
-                toast.success('Blog added successfully!');
-                form.reset();
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                if (data.insertedId) {
+                    toast.success('Blog added successfully!');
+                    form.reset();
 
-                // নতুন ব্লগ যোগ হলে Features.jsx পেজে আপডেট পাঠানোর জন্য custom event dispatch করা হচ্ছে
-                window.dispatchEvent(new Event("blogUpdated"));
-            }
-        });
+                    // নতুন ব্লগ যোগ হলে Features.jsx পেজে আপডেট পাঠানোর জন্য custom event dispatch করা হচ্ছে
+                    window.dispatchEvent(new Event("blogUpdated"));
+                }
+            });
     }
 
     return (
         <div className="pb-20 bg-[#c3eb9b]">
+            <Helmet>
+                <title>PLant's Tree - Add Blog</title>
+            </Helmet>
             <div className="w-[1200px] mx-auto">
                 <form onSubmit={handleAddBlog}>
                     <div className="card-body">
